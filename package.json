@@ -1,0 +1,20 @@
+{
+  "name": "protractorJS",
+  "version": "1.0.0",
+  "description": "This is a protractor framework with Jasmine using webdriverJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knanduri/protractorJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/knanduri/protractorJS/issues"
+  },
+  "homepage": "https://github.com/knanduri/protractorJS#readme"
+}
