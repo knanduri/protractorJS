@@ -1,4 +1,5 @@
-import { expect } from "Chai";
+import { expect } from "chai";
+import { ElementFinder, browser, by, element } from 'protractor';
 
 // spec.js
 describe('Protractor Demo App', function() {
