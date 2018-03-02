@@ -4,8 +4,8 @@
   "description": "This is a protractor framework with Jasmine using webdriverJS",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha *.js --require babel-register --reporter spec || exit 0"
-
+    "test": "./node_modules/mocha/bin/mocha *.js --require babel-register --reporter spec || exit 0",
+    "protractor": "babel-node node_modules/.bin/protractor conf.js"
   },
   "repository": {
     "type": "git",
