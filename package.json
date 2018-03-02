@@ -4,7 +4,8 @@
   "description": "This is a protractor framework with Jasmine using webdriverJS",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha *.js --require babel-register --reporter spec || exit 0",
+    "test": "./node_modules/mocha/bin/mocha *.js --compilers js:babel-core/register --require babel-polyfill --reporter spec || exit 0",
+    "int-test": "mocha --timeout 15000 protractorJS/spec.js --compilers js:babel-register ",
     "protractor": "babel-node node_modules/.bin/protractor conf.js"
   },
   "repository": {
