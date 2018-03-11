@@ -3,3 +3,4 @@
 .idea/libraries/*.xml
 .idea/*.iml
 node_modules
+dist
