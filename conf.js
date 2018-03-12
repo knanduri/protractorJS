@@ -2,7 +2,7 @@
 exports.config = {
     framework: 'mocha',
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['featureTests/*.test.js'],
+    specs: ['featureTests/productSearch.test.js'],
 
     mochaOpts: {
         reporter: "spec",
@@ -16,4 +16,10 @@ exports.config = {
         browser.driver.manage().window().setSize(width, height);
     },
 
+    suites: {
+        landingPage: 'featureTests/*.test.js',
+    },
+
+
+    SELENIUM_PROMISE_MANAGER: false,
 };
