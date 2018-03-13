@@ -17,9 +17,19 @@ exports.config = {
     },
 
     suites: {
-        landingPage: 'featureTests/*.test.js',
+        regressionTests: 'featureTests/*.test.js',
     },
 
+    capabilities: {
+        browserName: "chrome",
+        chromeOptions: {
+            prefs: {
+                "profile.default_content_setting_values.geolocation": 1,
+            },
+            args: ['incognito'] ,
+        }
+    },
 
+    baseUrl: 'https://bws.com.au',
     SELENIUM_PROMISE_MANAGER: false,
 };

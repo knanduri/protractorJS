@@ -1,9 +1,12 @@
 import {by, element, ExpectedConditions} from "protractor";
 import { expect } from 'chai';
+import {browser} from "protractor/built/index";
 
 export const selectors = {
     itemCode: element.all(by.css('[ng-click="ctrl.addToCart()"]')).get(1),
-    cartCount: element(by.css('.shopping_cart_desktop')),
+    cartButton: element(by.css('.shopping_cart_desktop')),
+    cartCheckoutButton: element(by.css('a.btn-primary')),
+    removeCartItem: element(by.css('button[aria-label="Remove"]'))
 };
 
 export const selectProduct = async () => {
@@ -12,7 +15,21 @@ export const selectProduct = async () => {
 };
 
 export const verifyCartCount = async () => {
-    await ExpectedConditions.visibilityOf(selectors.cartCount);
-    const getCartCount = await selectors.cartCount.getText();
-    expect(getCartCount).to.equal('1');
+    await ExpectedConditions.visibilityOf(selectors.cartButton);
+    const getcartButton = await selectors.cartButton.getText();
+    expect(getcartButton).to.equal('1');
+};
+
+export const clickCartButton = async () => {
+    await selectors.cartButton.click();
+    await ExpectedConditions.visibilityOf(selectors.cartCheckoutButton);
+    await expect(await selectors.cartCheckoutButton.isDisplayed());
+};
+
+export const emptyCart = async () => {
+    await selectors.removeCartItem.click();
+    await ExpectedConditions.visibilityOf(selectors.cartButton);
+    const getcartButton = await selectors.cartButton.getText();
+    expect(getcartButton).to.equal('');
+    await selectors.cartButton.click();
 };
