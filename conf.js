@@ -2,7 +2,7 @@
 exports.config = {
     framework: 'mocha',
     seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['featureTests/productSearch.test.js'],
+    specs: ['featureTests/*.test.js'],
 
     mochaOpts: {
         reporter: "spec",
@@ -20,16 +20,14 @@ exports.config = {
         regressionTests: 'featureTests/*.test.js',
     },
 
-    capabilities: {
-        browserName: "chrome",
-        chromeOptions: {
-            prefs: {
-                "profile.default_content_setting_values.geolocation": 1,
-            },
-            args: ['incognito'] ,
-        }
-    },
+    multiCapabilities: [
+        {'browserName': process.env.runBrowser,
+            'acceptInsecureCerts': true},
+],
+    args: ['incognito'],
+    maxInstances: 2,
+    shardTestFiles: true,
 
     baseUrl: 'https://bws.com.au',
-    SELENIUM_PROMISE_MANAGER: false,
+    SELENIUM_PROMISE_MANAGER: false
 };

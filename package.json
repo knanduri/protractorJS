@@ -7,7 +7,8 @@
     "test": "./node_modules/mocha/bin/mocha *.js --compilers js:babel-core/register --require babel-polyfill --reporter spec || exit 0",
     "int-test": "mocha --timeout 15000 protractorJS/spec.js --compilers js:babel-register ",
     "webdriver": "webdriver-manager update && webdriver-manager start",
-    "protractor": "babel-node node_modules/.bin/protractor conf.js --suite=regressionTests"
+    "protractor": "babel-node node_modules/.bin/protractor conf.js --suite=regressionTests",
+    "protractor-parallel": "node -r parallel-protractor node_modules/.bin/protractor conf.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,9 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-smoothie": "^0.3.2",
+    "log4js-protractor-appender": "^1.1.2",
     "mocha": "^5.0.1",
+    "parallel-protractor": "^1.0.0",
     "protractor": "^5.3.0"
   },
   "dependencies": {}

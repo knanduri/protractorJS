@@ -1,6 +1,7 @@
 import {by, element, ExpectedConditions} from "protractor";
 import { expect } from 'chai';
 import {browser} from "protractor/built/index";
+import {clickElement} from "../utils/wrapperFunctions";
 
 export const selectors = {
     itemCode: element.all(by.css('[ng-click="ctrl.addToCart()"]')).get(1),
@@ -10,8 +11,7 @@ export const selectors = {
 };
 
 export const selectProduct = async () => {
-    await ExpectedConditions.elementToBeClickable(selectors.itemCode);
-    await selectors.itemCode.click();
+    await clickElement(selectors.itemCode);
 };
 
 export const verifyCartCount = async () => {
