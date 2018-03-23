@@ -20,14 +20,19 @@ exports.config = {
         regressionTests: 'featureTests/*.test.js',
     },
 
-    multiCapabilities: [
-        {'browserName': process.env.runBrowser,
-            'acceptInsecureCerts': true},
-],
-    args: ['incognito'],
-    maxInstances: 2,
+    capabilities: {
+        'browserName': process.env.runBrowser,
+        'acceptInsecureCerts': true,
+        chromeOptions: {
+            args: ['--disable-gpu', '--no-sandbox', '--window-size=1920x1200', '--incognito', '--headless']
+        },
+    },
+
+    args: ['--disable-gpu', '--no-sandbox', '--window-size=1920x1200', '--incognito', '--headless'],
+    maxInstances: 1,
     shardTestFiles: true,
 
+    directConnect: true,
     baseUrl: 'https://bws.com.au',
     SELENIUM_PROMISE_MANAGER: false
 };
