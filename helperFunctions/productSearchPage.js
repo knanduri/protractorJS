@@ -8,7 +8,7 @@ export const selectors = {
 
 export const searchProduct = async () => {
     await ExpectedConditions.presenceOf(selectors.searchBox);
-    await selectors.searchBox.sendKeys('Corona');
+    await selectors.searchBox.sendKeys('Walker');
     await selectors.searchButton.click();
-    await expect(await browser.getCurrentUrl()).contains('/search?searchTerm=corona');
+    await expect(await browser.getCurrentUrl()).contains('/search?searchTerm=walker');
 };

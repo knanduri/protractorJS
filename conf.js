@@ -24,7 +24,7 @@ exports.config = {
         'browserName': process.env.runBrowser,
         'acceptInsecureCerts': true,
         chromeOptions: {
-            args: ['--disable-gpu', '--no-sandbox', '--window-size=1920x1200', '--incognito', '--headless']
+            args: ['--disable-gpu', '--no-sandbox', '--window-size=1920x1200', '--incognito']
         },
     },
 
